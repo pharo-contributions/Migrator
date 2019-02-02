@@ -22,6 +22,28 @@ LayoutFrame class >> fractions: fractionsOrNil [
 ]
 
 { #category : #'*MigratorFromPharo60To70' }
+LayoutFrame >> fractions: fractionsOrNil [
+	self deprecated: 'Do not use this method. It forces to create spurious objects for nothing.'.
+	^ self fractions: fractionsOrNil offsets: nil
+]
+
+{ #category : #'*MigratorFromPharo60To70' }
+LayoutFrame >> fractions: fractionsOrNil offsets: offsetsOrNil [
+
+	| fractions offsets |
+	self deprecated: 'Do not use this method. It forces to create spurious objects (rectangle or points) for nothing.'.
+	fractions := fractionsOrNil ifNil: [0@0 extent: 0@0].
+	offsets := offsetsOrNil ifNil: [0@0 extent: 0@0].
+	
+	^self
+		topFraction: fractions top offset: offsets top;
+		leftFraction: fractions left offset: offsets left;
+		bottomFraction: fractions bottom offset: offsets bottom;
+		rightFraction: fractions right offset: offsets right
+
+]
+
+{ #category : #'*MigratorFromPharo60To70' }
 LayoutFrame class >> fractions: fractionsOrNil offsets: offsetsOrNil [
 	"Do not use this API if you do not have already have the rectangles that should be passed as arguments. 
 	If you are creating the rectangles representing the numbers you need, better use the accessors: 
