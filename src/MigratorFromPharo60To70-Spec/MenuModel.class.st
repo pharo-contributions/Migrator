@@ -1,0 +1,13 @@
+"
+This is deprecated class because the original class MenuModel was renamed to MenuPresenter. You should stop to use this class and modify your code to use MenuPresenter.
+"
+Class {
+	#name : #MenuModel,
+	#superclass : #MenuPresenter,
+	#category : #'MigratorFromPharo60To70-Spec-Obsolete'
+}
+
+{ #category : #deprecation }
+MenuModel class >> isDeprecated [
+	^true
+]
